@@ -38,7 +38,7 @@ public class TestCase13 extends TestBasic {
     }
 
     @Step("Verify that product is displayed in cart page with exact quantity")
-    private void verifyThatProductIsDisplayedInCartPageWithExactQuantity() {
+    public static void verifyThatProductIsDisplayedInCartPageWithExactQuantity() {
         List<String> quantity = new ProductDetailPage(getDriver()).increaseQuantity("4")
                 .addToCartButtonClick()
                 .viewCartButtonClick().getQuantity();

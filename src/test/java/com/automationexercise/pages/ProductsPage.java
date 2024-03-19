@@ -40,6 +40,9 @@ public class ProductsPage {
     @FindBy(css = "a[href='/view_cart'] u")
     private WebElement viewCartButton;
 
+    @FindBy(css = ".navbar-nav [href='/view_cart']")
+    private WebElement cartButton;
+
     @FindBy(css = "a[href='#Men']")
     private WebElement menCategory;
 
@@ -96,6 +99,11 @@ public class ProductsPage {
         addToCartButton2.click();
         SeleniumHelper.waitForElementToBeClickable(driver, viewCartButton);
         viewCartButton.click();
+        return new CartPage(driver);
+    }
+
+    public CartPage viewCartPage() {
+        cartButton.click();
         return new CartPage(driver);
     }
 

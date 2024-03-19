@@ -26,14 +26,14 @@ public class TestCase12 extends TestBasic {
             8. Click 'View Cart' button
             9. Verify both products are added to Cart
             10. Verify their prices, quantity and total price""")
-    public void addProductsInCart() {
+    public static void addProductsInCart() {
         TestCase1.verifyThatHomePageIsVisibleSuccessfully();
         verifyBothProductsAreAddedToCart();
         verifyTheirPricesQuantityAndTotalPrice();
     }
 
     @Step("Verify both products are added to Cart")
-    private void verifyBothProductsAreAddedToCart() {
+    public static void verifyBothProductsAreAddedToCart() {
         List<String> productNames = new HomePage(getDriver())
                 .productsButtonClick()
                 .addProductsToCart()
@@ -42,7 +42,7 @@ public class TestCase12 extends TestBasic {
     }
 
     @Step("Verify their prices, quantity and total price")
-    private void verifyTheirPricesQuantityAndTotalPrice() {
+    public static void verifyTheirPricesQuantityAndTotalPrice() {
         List<String> prices = new CartPage(getDriver()).getPrices();
         List<String> quantity = new CartPage(getDriver()).getQuantity();
         List<String> totalPrices = new CartPage(getDriver()).getTotalPrices();

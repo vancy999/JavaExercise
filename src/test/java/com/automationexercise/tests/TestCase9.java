@@ -35,7 +35,7 @@ public class TestCase9 extends TestBasic {
             6. Enter product name in search input and click search button
             7. Verify 'SEARCHED PRODUCTS' is visible
             8. Verify all the products related to search are visible""")
-    public void searchProduct() {
+    public static void searchProduct() {
         TestCase1.verifyThatHomePageIsVisibleSuccessfully();
         TestCase8.verifyUserIsNavigatedToAllProductsPageSuccessfully();
         verifySearchedProductsIsVisible();

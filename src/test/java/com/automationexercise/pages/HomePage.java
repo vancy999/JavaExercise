@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class HomePage extends TestBasic {
 
@@ -70,6 +72,14 @@ public class HomePage extends TestBasic {
     @FindBy(id = "success-subscribe")
     private WebElement alertSuccessSubscribe;
 
+    @FindBy(xpath = "//b[.='vancy']")
+    private WebElement loggedinAsUsername;
+
+    @FindBy(css = "//h2[@class='title text-center']")
+    private List<WebElement> dressProduct;
+
+    @FindBy(xpath = "//h4[contains(.,'Women')]")
+    private WebElement womanCategory;
 
     private WebDriver driver;
 
@@ -155,6 +165,12 @@ public class HomePage extends TestBasic {
         return fullFledgedPracticeWebsiteForAutomationEngineers;
     }
 
+    public List<String> getDressProduct() {
+        return dressProduct
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
 
     //footer
     public WebElement getSubscription() {
@@ -171,6 +187,10 @@ public class HomePage extends TestBasic {
     public WebElement getAlertSuccessSubscribe() {
         return alertSuccessSubscribe;
     }
+    public WebElement getloggedinAsUsername() {
+        return loggedinAsUsername;
+    }
+
 }
 
 
